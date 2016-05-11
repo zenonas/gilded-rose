@@ -1,63 +1,30 @@
 package com.gildedrose;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class GildedRose {
 
-	public String name;
-	public Long quality;
-	public Long daysRemaining;
+	private static final Map<String, Class> itemTypes = new HashMap<String, Class>() {
+		{
+			put("normal", Normal.class);
+			put("Aged Brie", Brie.class);
+			put("Backstage passes to a TAFKAL80ETC concert", Backstage.class);
+			put("Sulfuras, Hand of Ragnaros", BasicItem.class);
+			put("Conjured Mana Cake", Conjured.class);
+		}
+	};
 
-	public GildedRose(String name, Long quality, Long daysRemaining) {
-		this.name = name;
-		this.quality = quality;
-		this.daysRemaining = daysRemaining;
-	}
-
-	public void tick() {
-		if ((name != "Aged Brie") && (name != "Backstage passes to a TAFKAL80ETC concert")) {
-			if (quality > 0) {
-				if (name != "Sulfuras, Hand of Ragnaros") {
-					quality -= 1;
-				}
-			}
+	public static Item createItem(String name, Long quality, Long daysRemaining) {
+		Class klass = (itemTypes.get(name) != null) ? itemTypes.get(name) : BasicItem.class;
+		try {
+			Item item = (Item) klass.newInstance();
+			item.setDaysRemaining(daysRemaining);
+			item.setQuality(quality);
+			return item;
+		} catch (InstantiationException | IllegalAccessException e) {
+			e.printStackTrace();
 		}
-		else {
-			if (quality < 50) {
-				quality += 1;
-				if (name == "Backstage passes to a TAFKAL80ETC concert") {
-					if (daysRemaining < 11) {
-						if (quality < 50) {
-							quality += 1;
-						}
-					}
-					if (daysRemaining < 6) {
-						if (quality < 50) {
-							quality += 1;
-						}
-					}
-				}
-			}
-		}
-		if (name != "Sulfuras, Hand of Ragnaros") {
-			daysRemaining -= 1;
-		}
-		if (daysRemaining < 0) {
-			if (name != "Aged Brie") {
-				if (name != "Backstage passes to a TAFKAL80ETC concert") {
-					if (quality > 0) {
-						if (name != "Sulfuras, Hand of Ragnaros") {
-							quality -= 1;
-						}
-					}
-				}
-				else {
-					quality = quality - quality;
-				}
-			}
-			else {
-				if (quality < 50) {
-					quality += 1;
-				}
-			}
-		}
+		return null;
 	}
 }
