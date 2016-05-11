@@ -1,4 +1,9 @@
 *.class
+build/
+target/
+.gradle/
+.idea/
+gilded-rose.i*
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
