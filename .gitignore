@@ -9,7 +9,6 @@ gilded-rose.i*
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.ear
 
