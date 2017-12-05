@@ -2,9 +2,22 @@ package com.gildedrose;
 
 public class GildedRose {
 
-	public String name;
-	public Long quality;
-	public Long daysRemaining;
+    private String name;
+    private Long quality;
+    private Long daysRemaining;
+
+    public String getName() {
+        return name;
+    }
+
+    public Long getQuality() {
+        return quality;
+    }
+
+    public Long getDaysRemaining() {
+        return daysRemaining;
+    }
+
 
 	public GildedRose(String name, Long quality, Long daysRemaining) {
 		this.name = name;
@@ -13,38 +26,38 @@ public class GildedRose {
 	}
 
 	public void tick() {
-		if (!name.equals("Aged Brie") && !name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-			if (quality > 0) {
-				if (!name.equals("Sulfuras, Hand of Ragnaros")) {
+		if (!getName().equals("Aged Brie") && !getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
+			if (getQuality() > 0) {
+				if (!getName().equals("Sulfuras, Hand of Ragnaros")) {
 					quality -= 1;
 				}
 			}
 		}
 		else {
-			if (quality < 50) {
+			if (getQuality() < 50) {
 				quality += 1;
-				if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-					if (daysRemaining < 11) {
-						if (quality < 50) {
+				if (getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
+					if (getDaysRemaining() < 11) {
+						if (getQuality() < 50) {
 							quality += 1;
 						}
 					}
-					if (daysRemaining < 6) {
-						if (quality < 50) {
+					if (getDaysRemaining() < 6) {
+						if (getQuality() < 50) {
 							quality += 1;
 						}
 					}
 				}
 			}
 		}
-		if (!name.equals("Sulfuras, Hand of Ragnaros")) {
+		if (!getName().equals("Sulfuras, Hand of Ragnaros")) {
 			daysRemaining -= 1;
 		}
-		if (daysRemaining < 0) {
-			if (!name.equals("Aged Brie")) {
-				if (!name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-					if (quality > 0) {
-						if (!name.equals("Sulfuras, Hand of Ragnaros")) {
+		if (getDaysRemaining() < 0) {
+			if (!getName().equals("Aged Brie")) {
+				if (!getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
+					if (getQuality() > 0) {
+						if (!getName().equals("Sulfuras, Hand of Ragnaros")) {
 							quality -= 1;
 						}
 					}
@@ -54,7 +67,7 @@ public class GildedRose {
 				}
 			}
 			else {
-				if (quality < 50) {
+				if (getQuality() < 50) {
 					quality += 1;
 				}
 			}
