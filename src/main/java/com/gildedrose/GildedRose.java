@@ -41,52 +41,6 @@ public class GildedRose {
 			tick_backstage();
 			return;
 		}
-		if (!getName().equals("Aged Brie") && !getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
-			if (getQuality() > 0) {
-				if (!getName().equals("Sulfuras, Hand of Ragnaros")) {
-					quality -= 1;
-				}
-			}
-		}
-		else {
-			if (getQuality() < 50) {
-				quality += 1;
-				if (getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
-					if (getDaysRemaining() < 11) {
-						if (getQuality() < 50) {
-							quality += 1;
-						}
-					}
-					if (getDaysRemaining() < 6) {
-						if (getQuality() < 50) {
-							quality += 1;
-						}
-					}
-				}
-			}
-		}
-		if (!getName().equals("Sulfuras, Hand of Ragnaros")) {
-			daysRemaining -= 1;
-		}
-		if (getDaysRemaining() < 0) {
-			if (!getName().equals("Aged Brie")) {
-				if (!getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
-					if (getQuality() > 0) {
-						if (!getName().equals("Sulfuras, Hand of Ragnaros")) {
-							quality -= 1;
-						}
-					}
-				}
-				else {
-					quality = quality - quality;
-				}
-			}
-			else {
-				if (getQuality() < 50) {
-					quality += 1;
-				}
-			}
-		}
 	}
 
 	private void tick_backstage() {
