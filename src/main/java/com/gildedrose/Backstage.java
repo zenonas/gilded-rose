@@ -1,14 +1,6 @@
 package com.gildedrose;
 
 public class Backstage extends Item {
-    public Backstage(Long quality, Long daysRemaining) {
-        super(quality, daysRemaining);
-    }
-
-    public Backstage() {
-
-    }
-
     public void tick() {
         quality +=1;
         if (daysRemaining <= 10) {

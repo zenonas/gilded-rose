@@ -1,14 +1,6 @@
 package com.gildedrose;
 
 public class Item {
-    public Item() {
-
-    }
-    public Item(Long quality, Long daysRemaining) {
-        this.quality = quality;
-        this.daysRemaining = daysRemaining;
-    }
-
     public Long getQuality() {
         return quality;
     }
