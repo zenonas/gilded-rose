@@ -13,9 +13,9 @@ public class GildedRose {
 	}
 
 	public void tick() {
-		if ((name != "Aged Brie") && (name != "Backstage passes to a TAFKAL80ETC concert")) {
+		if (!name.equals("Aged Brie") && !name.equals("Backstage passes to a TAFKAL80ETC concert")) {
 			if (quality > 0) {
-				if (name != "Sulfuras, Hand of Ragnaros") {
+				if (!name.equals("Sulfuras, Hand of Ragnaros")) {
 					quality -= 1;
 				}
 			}
@@ -23,7 +23,7 @@ public class GildedRose {
 		else {
 			if (quality < 50) {
 				quality += 1;
-				if (name == "Backstage passes to a TAFKAL80ETC concert") {
+				if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
 					if (daysRemaining < 11) {
 						if (quality < 50) {
 							quality += 1;
@@ -37,14 +37,14 @@ public class GildedRose {
 				}
 			}
 		}
-		if (name != "Sulfuras, Hand of Ragnaros") {
+		if (!name.equals("Sulfuras, Hand of Ragnaros")) {
 			daysRemaining -= 1;
 		}
 		if (daysRemaining < 0) {
-			if (name != "Aged Brie") {
-				if (name != "Backstage passes to a TAFKAL80ETC concert") {
+			if (!name.equals("Aged Brie")) {
+				if (!name.equals("Backstage passes to a TAFKAL80ETC concert")) {
 					if (quality > 0) {
-						if (name != "Sulfuras, Hand of Ragnaros") {
+						if (!name.equals("Sulfuras, Hand of Ragnaros")) {
 							quality -= 1;
 						}
 					}
