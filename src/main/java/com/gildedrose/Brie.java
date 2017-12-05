@@ -5,6 +5,10 @@ public class Brie extends Item {
         super(quality, daysRemaining);
     }
 
+    public Brie() {
+
+    }
+
     public void tick() {
         if (daysRemaining <= 0) {
             quality +=1;

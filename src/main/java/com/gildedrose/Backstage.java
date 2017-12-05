@@ -5,6 +5,10 @@ public class Backstage extends Item {
         super(quality, daysRemaining);
     }
 
+    public Backstage() {
+
+    }
+
     public void tick() {
         quality +=1;
         if (daysRemaining <= 10) {
