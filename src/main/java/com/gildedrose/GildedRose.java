@@ -30,6 +30,10 @@ public class GildedRose {
     		tick_normal();
     		return;
 		}
+		if (getName().equals("Aged Brie")) {
+    		tick_brie();
+			return;
+		}
 		if (!getName().equals("Aged Brie") && !getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
 			if (getQuality() > 0) {
 				if (!getName().equals("Sulfuras, Hand of Ragnaros")) {
@@ -78,17 +82,25 @@ public class GildedRose {
 		}
 	}
 
+	private void tick_brie() {
+    	if (daysRemaining <= 0) {
+			quality +=1;
+		}
+		daysRemaining -= 1;
+		quality +=1;
+		if (getQuality() > 50) {
+			quality = 50L;
+		}
+	}
+
 	private void tick_normal() {
 		daysRemaining -= 1;
-
-		if (getQuality() == 0) {
-			return;
-		}
 		quality -= 1;
 		if (getDaysRemaining() <= 0) {
-			if (getQuality() > 0) {
-				quality -= 1;;
-			}
+			quality -= 1;;
+		}
+		if (quality < 0) {
+			quality = 0L;
 		}
 	}
 }
