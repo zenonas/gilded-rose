@@ -37,6 +37,13 @@ public class GildedRoseTest {
 	}
 
 	@Test
+	public void testWithNormalItemQualityOfOneOnSellDate() {
+		GildedRose item = new GildedRose("normal", 1L, 0L);
+		item.tick();
+		Assert.assertEquals(Long.valueOf(0), item.getQuality());
+		Assert.assertEquals(Long.valueOf(-1), item.getDaysRemaining());
+	}
+	@Test
 	public void testWithAgedBrieBeforeSellDate() {
 		GildedRose item = new GildedRose("Aged Brie", 10L, 5L);
 		item.tick();

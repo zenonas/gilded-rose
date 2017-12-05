@@ -26,6 +26,10 @@ public class GildedRose {
 	}
 
 	public void tick() {
+    	if (getName().equals("normal")) {
+    		tick_normal();
+    		return;
+		}
 		if (!getName().equals("Aged Brie") && !getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
 			if (getQuality() > 0) {
 				if (!getName().equals("Sulfuras, Hand of Ragnaros")) {
@@ -70,6 +74,20 @@ public class GildedRose {
 				if (getQuality() < 50) {
 					quality += 1;
 				}
+			}
+		}
+	}
+
+	private void tick_normal() {
+		daysRemaining -= 1;
+
+		if (getQuality() == 0) {
+			return;
+		}
+		quality -= 1;
+		if (getDaysRemaining() <= 0) {
+			if (getQuality() > 0) {
+				quality -= 1;;
 			}
 		}
 	}
