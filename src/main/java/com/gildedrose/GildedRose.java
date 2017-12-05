@@ -34,6 +34,9 @@ public class GildedRose {
     		tick_brie();
 			return;
 		}
+		if (getName().equals("Sulfuras, Hand of Ragnaros")) {
+			return;
+		}
 		if (!getName().equals("Aged Brie") && !getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
 			if (getQuality() > 0) {
 				if (!getName().equals("Sulfuras, Hand of Ragnaros")) {
