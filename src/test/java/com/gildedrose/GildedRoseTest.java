@@ -212,7 +212,6 @@ public class GildedRoseTest {
 	}
 
 	@Test
-	@Ignore
 	public void testWithConjured_BeforeSellDate() {
 		GildedRose item = new GildedRose("Conjured Mana Cake", 10L, 5L);
 		item.tick();
@@ -221,7 +220,6 @@ public class GildedRoseTest {
 	}
 
 	@Test
-	@Ignore
 	public void testWithConjured_BeforeSellDateWithZeroQuality() {
 		GildedRose item = new GildedRose("Conjured Mana Cake", 0L, 5L);
 		item.tick();
@@ -230,7 +228,6 @@ public class GildedRoseTest {
 	}
 
 	@Test
-	@Ignore
 	public void testWithConjured_OnSellDate() {
 		GildedRose item = new GildedRose("Conjured Mana Cake", 10L, 0L);
 		item.tick();
@@ -239,7 +236,6 @@ public class GildedRoseTest {
 	}
 
 	@Test
-	@Ignore
 	public void testWithConjured_OnSellDateAtZeroQuality() {
 		GildedRose item = new GildedRose("Conjured Mana Cake", 0L, 0L);
 		item.tick();
@@ -248,7 +244,6 @@ public class GildedRoseTest {
 	}
 
 	@Test
-	@Ignore
 	public void testWithConjured_AfterSellDate() {
 		GildedRose item = new GildedRose("Conjured Mana Cake", 10L, -10L);
 		item.tick();
@@ -257,7 +252,6 @@ public class GildedRoseTest {
 	}
 
 	@Test
-	@Ignore
 	public void testWithConjured_AfterSellDateWithZeroQuality() {
 		GildedRose item = new GildedRose("Conjured Mana Cake", 0L, -10L);
 		item.tick();

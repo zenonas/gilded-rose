@@ -11,6 +11,7 @@ public class ItemFactory {
         classMap.put("Aged Brie", "com.gildedrose.Brie");
         classMap.put("Sulfuras, Hand of Ragnaros", "com.gildedrose.Item");
         classMap.put("Backstage passes to a TAFKAL80ETC concert", "com.gildedrose.Backstage");
+        classMap.put("Conjured Mana Cake", "com.gildedrose.Conjured");
     }
 
     public static Item create(String name, Long quality, Long daysRemaining) {
