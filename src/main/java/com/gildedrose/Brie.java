@@ -2,12 +2,18 @@ package com.gildedrose;
 
 public class Brie extends BasicItem {
 
+	public Brie(Long quality, Long daysRemaining) {
+		super(quality, daysRemaining);
+	}
+
 	@Override
 	public void tick() {
-		daysRemaining -= 1;
-		if (quality >= 50) return;
+		setDaysRemaining(getDaysRemaining() - 1);
+		if (getQuality() >= 50) return;
 
-		quality += 1;
-		if (daysRemaining <= 0) quality += 1;
+		setQuality(getQuality() + 1);
+		if (getDaysRemaining() <= 0) {
+			setQuality(getQuality() + 1);
+		}
 	}
 }

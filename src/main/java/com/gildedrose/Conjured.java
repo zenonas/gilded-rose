@@ -1,13 +1,18 @@
 package com.gildedrose;
 
 public class Conjured extends BasicItem {
+	public Conjured(Long quality, Long daysRemaining) {
+		super(quality, daysRemaining);
+	}
 
 	@Override
 	public void tick() {
-		daysRemaining -= 1;
-		if (quality == 0) return;
+		setDaysRemaining(getDaysRemaining() - 1);
+		if (getQuality() == 0) return;
 
-		quality -= 2;
-		if (daysRemaining <= 0) { quality -= 2; }
+		setQuality(getQuality() - 2);
+		if (getDaysRemaining() <= 0) {
+			setQuality(getQuality() - 2);
+		}
 	}
 }

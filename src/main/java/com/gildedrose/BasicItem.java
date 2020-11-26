@@ -1,9 +1,13 @@
 package com.gildedrose;
 
-public class BasicItem implements Item {
+public abstract class BasicItem implements Item {
+	private Long quality;
+	private Long daysRemaining;
 
-	protected Long quality;
-	protected Long daysRemaining;
+	public BasicItem(Long quality, Long daysRemaining) {
+		this.quality = quality;
+		this.daysRemaining = daysRemaining;
+	}
 
 	public Long getQuality() {
 		return quality;
@@ -21,6 +25,12 @@ public class BasicItem implements Item {
 		this.daysRemaining = daysRemaining;
 	}
 
-	public void tick() {
+	public static final class DoNothing extends BasicItem {
+		public DoNothing(Long quality, Long daysRemaining) {
+			super(quality, daysRemaining);
+		}
+
+		@Override
+		public void tick() {}
 	}
 }

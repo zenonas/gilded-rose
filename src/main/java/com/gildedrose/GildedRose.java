@@ -13,30 +13,33 @@ public class GildedRose {
 		NORMAL("normal", Normal::new),
 		AGED_BRIE("Aged Brie", Brie::new),
 		CONCERT_PASSES("Backstage passes to a TAFKAL80ETC concert", Backstage::new),
-		SULFURAS("Sulfuras, Hand of Ragnaros", BasicItem::new),
+		SULFURAS("Sulfuras, Hand of Ragnaros", BasicItem.DoNothing::new),
 		MANA_CAKE("Conjured Mana Cake", Conjured::new);
 
 		private final String name;
-		private final Supplier<Item> factory;
+		private final ItemFactory<? extends Item> factory;
 
-		Types(String name, Supplier<Item> factory) {
+		Types(String name, ItemFactory<? extends Item> factory) {
 			this.name = name;
 			this.factory = factory;
 		}
 
-		static Optional<Item> createByName(String name) {
+		static Optional<ItemFactory<? extends Item>> createByName(String name) {
 			return Arrays.stream(values())
 					.filter(type -> type.name.equals(name))
 					.findAny()
-					.map(type -> type.factory.get());
+					.map(type -> type.factory);
 		}
 	}
 
 	public static Item createItem(String name, Long quality, Long daysRemaining) {
-		return Types.createByName(name).map(item -> {
-			item.setDaysRemaining(daysRemaining);
-			item.setQuality(quality);
-			return item;
-		}).orElse(null);
+		return Types.createByName(name)
+				.map(factory -> factory.create(quality, daysRemaining))
+				.orElse(null);
+	}
+
+	@FunctionalInterface
+	interface ItemFactory<T extends Item> {
+		T create(Long quality, Long daysRemaining);
 	}
 }
