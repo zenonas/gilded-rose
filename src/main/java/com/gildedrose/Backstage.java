@@ -8,7 +8,6 @@ public class Backstage extends BasicItem {
 
 	@Override
 	public void onTick() {
-		if (getQuality() >= 50) return;
 		if (getDaysRemaining() < 0) {
 			setQuality(0L);
 			return;
@@ -21,5 +20,10 @@ public class Backstage extends BasicItem {
 		if (getDaysRemaining() < 5) {
 			increaseQuality(1);
 		}
+	}
+
+	@Override
+	protected boolean shouldSkip() {
+		return getQuality() >= 50;
 	}
 }

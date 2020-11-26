@@ -7,11 +7,14 @@ public class Conjured extends BasicItem {
 
 	@Override
 	public void onTick() {
-		if (getQuality() == 0) return;
-
 		increaseQuality(-2);
 		if (getDaysRemaining() <= 0) {
 			increaseQuality(-2);
 		}
+	}
+
+	@Override
+	protected boolean shouldSkip() {
+		return getQuality() == 0;
 	}
 }

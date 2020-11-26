@@ -28,8 +28,12 @@ public abstract class BasicItem implements Item {
 	@Override
 	public void tick() {
 		daysRemaining -= 1;
+		if (shouldSkip()) {
+			return;
+		}
 		onTick();
 	}
 
 	protected abstract void onTick();
+	protected abstract boolean shouldSkip();
 }
