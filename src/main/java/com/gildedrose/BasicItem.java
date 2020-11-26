@@ -21,6 +21,10 @@ public abstract class BasicItem implements Item {
 		this.quality = quality;
 	}
 
+	public void increaseQuality(long amount) {
+		quality += amount;
+	}
+
 	@Override
 	public void tick() {
 		daysRemaining -= 1;

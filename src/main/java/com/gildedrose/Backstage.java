@@ -14,12 +14,12 @@ public class Backstage extends BasicItem {
 			return;
 		}
 
-		setQuality(getQuality() + 1);
+		increaseQuality(1);
 		if (getDaysRemaining() < 10) {
-			setQuality(getQuality() + 1);
+			increaseQuality(1);
 		}
 		if (getDaysRemaining() < 5) {
-			setQuality(getQuality() + 1);
+			increaseQuality(1);
 		}
 	}
 }

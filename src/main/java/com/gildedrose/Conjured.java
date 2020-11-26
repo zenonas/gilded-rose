@@ -9,9 +9,9 @@ public class Conjured extends BasicItem {
 	public void onTick() {
 		if (getQuality() == 0) return;
 
-		setQuality(getQuality() - 2);
+		increaseQuality(-2);
 		if (getDaysRemaining() <= 0) {
-			setQuality(getQuality() - 2);
+			increaseQuality(-2);
 		}
 	}
 }
