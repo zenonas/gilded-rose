@@ -3,7 +3,7 @@ build/
 target/
 .gradle/
 .idea/
-gilded-rose.i*
+guilded-rose.iml
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
