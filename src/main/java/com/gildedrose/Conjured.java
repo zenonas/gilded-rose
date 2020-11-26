@@ -1,7 +1,7 @@
 package com.gildedrose;
 
 public class Conjured extends BasicItem {
-	public Conjured(Long quality, Long daysRemaining) {
+	public Conjured(long quality, long daysRemaining) {
 		super(quality, daysRemaining);
 	}
 

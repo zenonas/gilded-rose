@@ -1,23 +1,23 @@
 package com.gildedrose;
 
 public abstract class BasicItem implements Item {
-	private Long quality;
-	private Long daysRemaining;
+	private long quality;
+	private long daysRemaining;
 
-	public BasicItem(Long quality, Long daysRemaining) {
+	public BasicItem(long quality, long daysRemaining) {
 		this.quality = quality;
 		this.daysRemaining = daysRemaining;
 	}
 
-	public Long getQuality() {
+	public long getQuality() {
 		return quality;
 	}
 
-	public Long getDaysRemaining() {
+	public long getDaysRemaining() {
 		return daysRemaining;
 	}
 
-	public void setQuality(Long quality) {
+	public void setQuality(long quality) {
 		this.quality = quality;
 	}
 

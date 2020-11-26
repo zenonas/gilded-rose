@@ -2,11 +2,11 @@ package com.gildedrose;
 
 public interface Item {
 	void tick();
-	Long getQuality();
-	Long getDaysRemaining();
+	long getQuality();
+	long getDaysRemaining();
 
 	@FunctionalInterface
 	interface Factory<T extends Item> {
-		T create(Long quality, Long daysRemaining);
+		T create(long quality, long daysRemaining);
 	}
 }

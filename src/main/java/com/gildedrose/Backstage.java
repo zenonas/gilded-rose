@@ -2,7 +2,7 @@ package com.gildedrose;
 
 public class Backstage extends BasicItem {
 
-	public Backstage(Long quality, Long daysRemaining) {
+	public Backstage(long quality, long daysRemaining) {
 		super(quality, daysRemaining);
 	}
 

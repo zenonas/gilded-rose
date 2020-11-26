@@ -1,7 +1,7 @@
 package com.gildedrose;
 
 public class Normal extends BasicItem {
-	public Normal(Long quality, Long daysRemaining) {
+	public Normal(long quality, long daysRemaining) {
 		super(quality, daysRemaining);
 	}
 

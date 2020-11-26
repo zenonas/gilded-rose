@@ -2,7 +2,7 @@ package com.gildedrose;
 
 public class Brie extends BasicItem {
 
-	public Brie(Long quality, Long daysRemaining) {
+	public Brie(long quality, long daysRemaining) {
 		super(quality, daysRemaining);
 	}
 

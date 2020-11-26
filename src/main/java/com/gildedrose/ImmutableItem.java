@@ -15,12 +15,12 @@ public class ImmutableItem implements Item {
     }
 
     @Override
-    public Long getQuality() {
+    public long getQuality() {
         return quantity;
     }
 
     @Override
-    public Long getDaysRemaining() {
+    public long getDaysRemaining() {
         return daysRemaining;
     }
 }
