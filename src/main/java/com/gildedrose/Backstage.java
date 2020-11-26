@@ -2,14 +2,28 @@ package com.gildedrose;
 
 public class Backstage extends BasicItem {
 
-	@Override
-	public void tick() {
-		daysRemaining -= 1;
-		if (quality >= 50) return;
-		if (daysRemaining < 0) { quality = 0L; return; }
+	public Backstage(long quality, long daysRemaining) {
+		super(quality, daysRemaining);
+	}
 
-		quality += 1;
-		if (daysRemaining < 10) quality += 1;
-		if (daysRemaining < 5) quality += 1;
+	@Override
+	public void onTick() {
+		if (getDaysRemaining() < 0) {
+			setQuality(0L);
+			return;
+		}
+
+		increaseQuality(1);
+		if (getDaysRemaining() < 10) {
+			increaseQuality(1);
+		}
+		if (getDaysRemaining() < 5) {
+			increaseQuality(1);
+		}
+	}
+
+	@Override
+	protected boolean shouldSkip() {
+		return getQuality() >= 50;
 	}
 }

@@ -1,13 +1,20 @@
 package com.gildedrose;
 
-public class Normal  extends  BasicItem{
+public class Normal extends BasicItem {
+	public Normal(long quality, long daysRemaining) {
+		super(quality, daysRemaining);
+	}
 
 	@Override
-	public void tick() {
-		daysRemaining -= 1;
-		if (quality == 0) return;
+	public void onTick() {
+		increaseQuality(-1);
+		if (getDaysRemaining() <= 0) {
+			increaseQuality(-1);
+		}
+	}
 
-		quality -= 1;
-		if (daysRemaining <= 0) quality -= 1;
+	@Override
+	protected boolean shouldSkip() {
+		return getQuality() == 0;
 	}
 }
