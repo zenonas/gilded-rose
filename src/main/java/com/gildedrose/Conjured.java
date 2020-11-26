@@ -6,8 +6,7 @@ public class Conjured extends BasicItem {
 	}
 
 	@Override
-	public void tick() {
-		setDaysRemaining(getDaysRemaining() - 1);
+	public void onTick() {
 		if (getQuality() == 0) return;
 
 		setQuality(getQuality() - 2);

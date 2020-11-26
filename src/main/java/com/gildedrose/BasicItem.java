@@ -21,16 +21,11 @@ public abstract class BasicItem implements Item {
 		this.quality = quality;
 	}
 
-	public void setDaysRemaining(Long daysRemaining) {
-		this.daysRemaining = daysRemaining;
+	@Override
+	public void tick() {
+		daysRemaining -= 1;
+		onTick();
 	}
 
-	public static final class DoNothing extends BasicItem {
-		public DoNothing(Long quality, Long daysRemaining) {
-			super(quality, daysRemaining);
-		}
-
-		@Override
-		public void tick() {}
-	}
+	protected abstract void onTick();
 }

@@ -7,8 +7,7 @@ public class Backstage extends BasicItem {
 	}
 
 	@Override
-	public void tick() {
-		setDaysRemaining(getDaysRemaining() - 1);
+	public void onTick() {
 		if (getQuality() >= 50) return;
 		if (getDaysRemaining() < 0) {
 			setQuality(0L);

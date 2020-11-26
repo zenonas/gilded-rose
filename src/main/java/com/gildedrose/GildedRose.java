@@ -13,7 +13,7 @@ public class GildedRose {
 		NORMAL("normal", Normal::new),
 		AGED_BRIE("Aged Brie", Brie::new),
 		CONCERT_PASSES("Backstage passes to a TAFKAL80ETC concert", Backstage::new),
-		SULFURAS("Sulfuras, Hand of Ragnaros", BasicItem.DoNothing::new),
+		SULFURAS("Sulfuras, Hand of Ragnaros", ImmutableItem::new),
 		MANA_CAKE("Conjured Mana Cake", Conjured::new);
 
 		private final String name;

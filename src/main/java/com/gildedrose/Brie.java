@@ -7,8 +7,7 @@ public class Brie extends BasicItem {
 	}
 
 	@Override
-	public void tick() {
-		setDaysRemaining(getDaysRemaining() - 1);
+	public void onTick() {
 		if (getQuality() >= 50) return;
 
 		setQuality(getQuality() + 1);
